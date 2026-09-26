@@ -1,12 +1,158 @@
-*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#24451f;font-family:Arial,sans-serif;color:#fff;touch-action:none}
-canvas{position:fixed;inset:0;width:100%;height:100%}.top{position:fixed;top:12px;left:12px;right:12px;display:flex;gap:10px;flex-wrap:wrap;z-index:3}
-.top span,.panel,.help{background:#07111dcc;border:1px solid #ffffff33;border-radius:14px;padding:10px 14px;backdrop-filter:blur(5px)}
-#mission{position:fixed;top:62px;left:50%;transform:translateX(-50%);background:#07111dcc;padding:8px 14px;border-radius:12px;z-index:3;font-weight:bold}
-#message{position:fixed;top:105px;left:50%;transform:translateX(-50%);z-index:3;color:#ffe22e;font-weight:bold;text-shadow:0 2px 4px #000}
-.panel{position:fixed;z-index:5;left:50%;top:50%;transform:translate(-50%,-50%);min-width:280px;text-align:center}
-.panel h1{margin:0 0 5px;font-size:34px}.panel p{opacity:.85}button{border:0;border-radius:12px;padding:13px 18px;margin:6px;background:#13a9ff;color:#fff;font-weight:bold;font-size:15px}
-button:active{transform:scale(.95)}.hidden{display:none}.help{margin-top:12px;font-size:12px}
-.controls{position:fixed;left:0;right:0;bottom:18px;display:flex;justify-content:space-between;z-index:4;padding:0 18px;pointer-events:none}
-.controls button{pointer-events:auto;width:62px;height:52px;background:#07111dcc;border:1px solid #ffffff44}
-.steer,.drive{display:flex;gap:4px;align-items:end}.drive button:last-child{width:90px;background:#d98b00}
-@media(max-width:500px){.top{font-size:12px}.top span{padding:7px 9px}.panel h1{font-size:27px}.controls button{width:56px;height:48px}}
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #111;
+  font-family: Arial, Helvetica, sans-serif;
+  touch-action: none;
+}
+
+#game {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #222;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#hud {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.hudBox {
+  background: rgba(0, 0, 0, 0.68);
+  color: white;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.hudBox span {
+  font-size: 15px;
+}
+
+.panel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(90vw, 420px);
+  padding: 26px 20px;
+  text-align: center;
+  color: white;
+  background: rgba(8, 10, 15, 0.94);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 18px;
+  box-shadow: 0 12px 50px rgba(0,0,0,.55);
+}
+
+.panel h1 {
+  margin: 0 0 8px;
+  font-size: 38px;
+  letter-spacing: 2px;
+}
+
+.panel h2 {
+  margin-top: 0;
+  font-size: 28px;
+}
+
+.panel p {
+  color: #ddd;
+  line-height: 1.45;
+}
+
+button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px 16px;
+  border: 0;
+  border-radius: 12px;
+  background: #ff3b30;
+  color: white;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(.97);
+}
+
+button.secondary {
+  background: #333944;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#message {
+  position: absolute;
+  top: 76px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 22px;
+  font-weight: 900;
+  text-shadow: 0 2px 5px #000;
+  pointer-events: none;
+}
+
+#raceControls {
+  position: absolute;
+  bottom: 18px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.control, .nitro {
+  pointer-events: auto;
+  width: 76px;
+  height: 62px;
+  margin: 0;
+  padding: 0;
+  border-radius: 50%;
+  background: rgba(0,0,0,.65);
+  border: 2px solid rgba(255,255,255,.3);
+  font-size: 28px;
+}
+
+.nitro {
+  width: 96px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(0, 120, 255, .75);
+  font-size: 15px;
+}
+
+@media (min-width: 700px) {
+  .control, .nitro {
+    opacity: .85;
+  }
+}

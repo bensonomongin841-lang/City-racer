@@ -1,35 +1,51 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>City Racer</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>City Racer</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<canvas id="game"></canvas>
-<div id="hud">
-  <div class="top"><span>💰 $<b id="money">1000</b></span><span>🚗 <b id="speed">0 km/h</b></span><span>⚡ <b id="nitro">100</b>%</span><span>ENGINE <b id="engine">1</b></span></div>
-  <div id="mission">FREE DRIVE</div>
-  <div id="message"></div>
-</div>
-<div id="menu" class="panel">
-  <h1>🏎️ CITY RACER</h1>
-  <p>Open World Adventure</p>
-  <button id="raceBtn">START RACE</button>
-  <button id="garageBtn">GARAGE</button>
-  <div class="help">⬆ GAS &nbsp; ⬇ BRAKE &nbsp; ⬅➡ STEER &nbsp; SHIFT NITRO</div>
-</div>
-<div id="garage" class="panel hidden">
-  <h2>GARAGE</h2>
-  <p>Upgrade your engine for $500.</p>
-  <button id="upgradeBtn">ENGINE LEVEL 2</button>
-  <button onclick="garage.classList.add('hidden')">CLOSE</button>
-</div>
-<div class="controls">
-  <div class="steer"><button data-key="left">◀</button><button data-key="right">▶</button></div>
-  <div class="drive"><button data-key="brake">▼</button><button data-key="gas">▲</button><button data-key="nitro">NITRO</button></div>
-</div>
-<script src="game.js"></script>
+  <div id="game">
+    <canvas id="gameCanvas"></canvas>
+
+    <div id="hud">
+      <div class="hudBox">SPEED <span id="speed">0</span> km/h</div>
+      <div class="hudBox">LAP <span id="lap">1</span>/3</div>
+      <div class="hudBox">NITRO <span id="nitro">100</span>%</div>
+    </div>
+
+    <div id="message"></div>
+
+    <div id="menu" class="panel">
+      <h1>CITY RACER</h1>
+      <p>Race through the city, pass checkpoints and use nitro to get ahead.</p>
+      <button id="startBtn">START RACE</button>
+      <button id="garageBtn" class="secondary">GARAGE</button>
+    </div>
+
+    <div id="garage" class="panel hidden">
+      <h2>GARAGE</h2>
+      <p>Coins: <span id="coins">0</span></p>
+      <button id="speedUpgrade">Upgrade Speed — 50 coins</button>
+      <button id="nitroUpgrade">Upgrade Nitro — 50 coins</button>
+      <button id="closeGarage" class="secondary">BACK</button>
+    </div>
+
+    <div id="raceControls">
+      <button id="leftBtn" class="control">◀</button>
+      <button id="nitroBtn" class="nitro">NITRO</button>
+      <button id="rightBtn" class="control">▶</button>
+    </div>
+
+    <div id="gameOver" class="panel hidden">
+      <h2 id="resultTitle">RACE FINISHED!</h2>
+      <p id="resultText"></p>
+      <button id="restartBtn">RACE AGAIN</button>
+      <button id="homeBtn" class="secondary">HOME</button>
+    </div>
+  </div>
+  <script src="game.js"></script>
 </body>
 </html>
