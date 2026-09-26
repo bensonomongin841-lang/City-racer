@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>City Racer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+<div id="hud">
+  <div class="top"><span>💰 $<b id="money">1000</b></span><span>🚗 <b id="speed">0 km/h</b></span><span>⚡ <b id="nitro">100</b>%</span><span>ENGINE <b id="engine">1</b></span></div>
+  <div id="mission">FREE DRIVE</div>
+  <div id="message"></div>
+</div>
+<div id="menu" class="panel">
+  <h1>🏎️ CITY RACER</h1>
+  <p>Open World Adventure</p>
+  <button id="raceBtn">START RACE</button>
+  <button id="garageBtn">GARAGE</button>
+  <div class="help">⬆ GAS &nbsp; ⬇ BRAKE &nbsp; ⬅➡ STEER &nbsp; SHIFT NITRO</div>
+</div>
+<div id="garage" class="panel hidden">
+  <h2>GARAGE</h2>
+  <p>Upgrade your engine for $500.</p>
+  <button id="upgradeBtn">ENGINE LEVEL 2</button>
+  <button onclick="garage.classList.add('hidden')">CLOSE</button>
+</div>
+<div class="controls">
+  <div class="steer"><button data-key="left">◀</button><button data-key="right">▶</button></div>
+  <div class="drive"><button data-key="brake">▼</button><button data-key="gas">▲</button><button data-key="nitro">NITRO</button></div>
+</div>
+<script src="game.js"></script>
+</body>
+</html>

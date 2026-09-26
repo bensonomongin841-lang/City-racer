@@ -1,0 +1,12 @@
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#24451f;font-family:Arial,sans-serif;color:#fff;touch-action:none}
+canvas{position:fixed;inset:0;width:100%;height:100%}.top{position:fixed;top:12px;left:12px;right:12px;display:flex;gap:10px;flex-wrap:wrap;z-index:3}
+.top span,.panel,.help{background:#07111dcc;border:1px solid #ffffff33;border-radius:14px;padding:10px 14px;backdrop-filter:blur(5px)}
+#mission{position:fixed;top:62px;left:50%;transform:translateX(-50%);background:#07111dcc;padding:8px 14px;border-radius:12px;z-index:3;font-weight:bold}
+#message{position:fixed;top:105px;left:50%;transform:translateX(-50%);z-index:3;color:#ffe22e;font-weight:bold;text-shadow:0 2px 4px #000}
+.panel{position:fixed;z-index:5;left:50%;top:50%;transform:translate(-50%,-50%);min-width:280px;text-align:center}
+.panel h1{margin:0 0 5px;font-size:34px}.panel p{opacity:.85}button{border:0;border-radius:12px;padding:13px 18px;margin:6px;background:#13a9ff;color:#fff;font-weight:bold;font-size:15px}
+button:active{transform:scale(.95)}.hidden{display:none}.help{margin-top:12px;font-size:12px}
+.controls{position:fixed;left:0;right:0;bottom:18px;display:flex;justify-content:space-between;z-index:4;padding:0 18px;pointer-events:none}
+.controls button{pointer-events:auto;width:62px;height:52px;background:#07111dcc;border:1px solid #ffffff44}
+.steer,.drive{display:flex;gap:4px;align-items:end}.drive button:last-child{width:90px;background:#d98b00}
+@media(max-width:500px){.top{font-size:12px}.top span{padding:7px 9px}.panel h1{font-size:27px}.controls button{width:56px;height:48px}}
